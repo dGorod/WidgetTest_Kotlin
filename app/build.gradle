@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "example.dgorod.widget"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    //Support libs
+    def supportLibVersion = "25.3.1"
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+
+    //RXJava
+    compile "io.reactivex.rxjava2:rxjava:2.0.8"
+    compile "io.reactivex.rxjava2:rxandroid:2.0.1"
+
+    //Network
+    def retrofitVersion = "2.2.0"
+    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    compile "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    compile "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
+    compile "com.squareup.retrofit2:converter-moshi:${retrofitVersion}"
+    compile "com.squareup.okhttp3:logging-interceptor:3.7.0"
+
+    //Development
+    compile "com.jakewharton.timber:timber:4.5.1"
+
+    //Test
+    testCompile "junit:junit:4.12"
+    androidTestCompile("com.android.support.test.espresso:espresso-core:2.2.2", {
+        exclude group: "com.android.support", module: "support-annotations"
+    })
+}

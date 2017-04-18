@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WidgetTest</string>
+
+    <!-- ERRORS -->
+    <string name="error_no_username">Please, set proper GitHub username first.</string>
+
+    <string name="username">Username:</string>
+    <string name="ok">OK</string>
+    <string name="no_data">No data.</string>
+</resources>
