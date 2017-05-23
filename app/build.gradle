@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
@@ -28,6 +30,9 @@ android {
 }
 
 dependencies {
+    //Kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
     //Support libs
     def supportLibVersion = "25.3.1"
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
@@ -53,4 +58,7 @@ dependencies {
     androidTestCompile("com.android.support.test.espresso:espresso-core:2.2.2", {
         exclude group: "com.android.support", module: "support-annotations"
     })
+}
+repositories {
+    mavenCentral()
 }
